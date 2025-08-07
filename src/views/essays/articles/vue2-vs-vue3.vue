@@ -76,12 +76,12 @@ for (const key in data2) &#123;
                 <div class="code-block">
                     <div class="code-title">核心实现</div>
                     <pre v-pre><code>// Vue3 响应式原理
-const data3 = &#123; title: '首页', description: '欢迎来到首页' &#125;
-const vue3View = new Proxy(data3, &#123;
-get(target, key) &#123; return target[key] &#125;,
-set(target, key, val) &#123; target[key] = val; return true &#125;
-&#125;)
-// 新增属性也能被劫持，视图可响应
+            const data3 = &#123; title: '首页', description: '欢迎来到首页' &#125;
+            const vue3View = new Proxy(data3, &#123;
+            get(target, key) &#123; return target[key] &#125;,
+            set(target, key, val) &#123; target[key] = val; return true &#125;
+            &#125;)
+            // 新增属性也能被劫持，视图可响应
         </code></pre>
                 </div>
             </section>
@@ -385,7 +385,7 @@ watch(vue3Version, () => {
 
 .compare-card:hover {
     border: 1px solid #1976d2;
-    background: #fafdff;
+    background: #fafdff50;
 }
 
 .compare-card h2 {
@@ -443,6 +443,7 @@ watch(vue3Version, () => {
     font-size: 14px;
     margin-top: 2px;
     margin-bottom: 2px;
+
     ul {
         padding: 0;
     }
@@ -492,6 +493,7 @@ watch(vue3Version, () => {
     overflow-x: auto;
     box-shadow: 0 1px 6px #0002;
     border: 1px solid #23272f;
+
     pre {
         margin: 0;
         white-space: pre-wrap;
@@ -553,26 +555,31 @@ watch(vue3Version, () => {
         max-width: 100vw;
         padding: 0 4vw 32px 4vw;
     }
+
     .compare-row,
     .data-struct-row {
         flex-direction: column;
         gap: 16px;
         padding: 0;
     }
+
     .compare-card,
     .data-struct-block {
         min-width: unset;
         padding: 12px 4vw 10px 4vw;
     }
+
     .card,
     .summary-card {
         padding: 12px 4vw;
     }
 }
+
 @media (max-width: 600px) {
     .teach-page {
         padding: 0 2vw 24px 2vw;
     }
+
     .compare-card,
     .data-struct-block,
     .card,

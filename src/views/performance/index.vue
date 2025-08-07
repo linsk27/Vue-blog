@@ -38,10 +38,13 @@ function getRoutePath(sub: string) {
 <style scoped>
 .perf-index {
     padding: 1.5rem;
-    max-width: 760px;
-    margin: 0 auto;
+    width: 900px;
+    /* margin: 0 auto; */
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #333;
-    background: #fff;
+    color: #fff;
+}
+
+.feature-link {
+    color: #fff;
 }
 </style>

@@ -11,7 +11,7 @@
             <ul class="nav-menu">
                 <li><router-link to="/">首页</router-link></li>
                 <li><router-link to="/performance">性能</router-link></li>
-                <li><router-link to="/essays">随笔</router-link></li>
+                <li><router-link to="/essays">特色笔记</router-link></li>
             </ul>
 
             <!-- 右侧用户区域 -->
@@ -26,7 +26,7 @@
                         <el-dropdown-menu>
                             <el-dropdown-item command="profile">个人中心</el-dropdown-item>
                             <el-dropdown-item command="settings">账号设置</el-dropdown-item>
-                            <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
+                            <el-dropdown-item divided command="logout" v-if="globalStore.token">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -75,9 +75,9 @@ const logOut = () => {
 <style scoped lang="scss">
 .enterprise-navbar {
     width: 100%;
-    background-color: #fff;
+    // background-color: #fff;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #e6e6e6;
+    // border-bottom: 1px solid #e6e6e6;
     font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
     position: relative;
     z-index: 1000;
@@ -85,10 +85,10 @@ const logOut = () => {
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 24px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
-        height: 64px;
+        height: 60px;
         justify-content: space-between;
     }
 }
@@ -107,7 +107,7 @@ const logOut = () => {
     .company-name {
         font-size: 18px;
         font-weight: 600;
-        color: #333;
+        color: #fff;
         letter-spacing: 0.5px;
     }
 }
@@ -125,13 +125,12 @@ const logOut = () => {
         position: relative;
         height: 100%;
         display: flex;
-        align-items: center;
 
         a {
-            color: #666;
+            color: #fff;
+            font-weight: bold;
             text-decoration: none;
             font-size: 15px;
-            font-weight: 500;
             padding: 8px 0;
             transition: all 0.3s ease;
             position: relative;
@@ -175,7 +174,7 @@ const logOut = () => {
         .username {
             margin: 0 8px 0 12px;
             font-size: 14px;
-            color: #333;
+            color: #fff;
             max-width: 100px;
             overflow: hidden;
             text-overflow: ellipsis;

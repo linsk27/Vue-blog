@@ -16,10 +16,15 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import ElementPlus from 'element-plus'
 import './assets/main.css'
 import './assets/libs.css'
-
+import 'nprogress/nprogress.css' // 引入nprogress样式
+import * as Icons from '@element-plus/icons-vue' // 引入所有图标
 const setupApp = async () => {
     const app = createApp(App)
 
+    // 注册element Icons组件
+    Object.keys(Icons).forEach(key => {
+        app.component(key, Icons[key as keyof typeof Icons])
+    })
     // 1. 安装 Pinia (在路由守卫使用之前)
     const pinia = createPinia()
     pinia.use(piniaPluginPersistedstate)

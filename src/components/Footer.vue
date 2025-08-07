@@ -26,9 +26,9 @@
 
 <style scoped>
 .official-footer {
-    background-color: #f8f8f8;
-    padding: 2rem 0;
-    border-top: 1px solid #e7e7e7;
+    /* background-color: #f8f8f8; */
+    padding: 1.5rem 0;
+    border-top: 1px solid #e7e7e78b;
     font-family: system-ui, -apple-system, sans-serif;
 }
 
@@ -52,7 +52,7 @@
 
 .footer-text {
     text-align: center;
-    color: #666;
+    color: #fff;
 }
 
 .copyright {
@@ -68,7 +68,7 @@
 }
 
 .link-item {
-    color: #444;
+    color: #fff;
     text-decoration: none;
     font-size: 0.85rem;
 }

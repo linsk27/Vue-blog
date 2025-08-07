@@ -22,12 +22,20 @@ import Footer from '@/components/Footer.vue';
 
 <style scoped>
 .container {
+    background-image: url('@/assets/images/backImg.jpg');
+    background-size: cover;
+
     display: flex;
+
+    background-repeat: no-repeat;
+    background-position: center center;
     min-height: 100vh;
     flex-direction: column;
 }
 
 main {
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 </style>

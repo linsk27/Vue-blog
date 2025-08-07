@@ -12,12 +12,13 @@ const essaysRouters: Array<RouteRecordRaw> = [
     {
         path: '/essays',
         component: () => import('@/views/essays/index.vue'),
-        meta: { title: '随笔' }
+        meta: { title: '特色笔记' }
     },
     {
         path: '/essays/:id',
         component: () => import('@/views/essays/ArticlePage.vue'), // 文章详情
         props: true,
-      },
+        meta: { title: '文章详情' }
+    }
 ]
 export default essaysRouters

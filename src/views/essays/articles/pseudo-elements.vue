@@ -44,22 +44,6 @@
             </section>
         </div>
 
-        <section class="card">
-            <h2>伪元素的原理与作用</h2>
-            <div class="explain">
-                <ul>
-                    <li>伪元素本质上是 <b>选择器</b>，用于选中元素的某个特殊部分（如首字母、首行、内容前后等）。</li>
-                    <li>常见的伪元素有
-                        <code>::before</code>、<code>::after</code>、<code>::first-letter</code>、<code>::first-line</code>、<code>::selection</code>
-                        等。
-                    </li>
-                    <li>伪元素不会改变 HTML 结构，但能让你用 CSS 实现更丰富的视觉效果和交互。</li>
-                    <li>如 <b>::before/::after</b> 可用于插入装饰性内容，<b>::first-letter/::first-line</b>
-                        可用于美化文本，<b>::selection</b> 可自定义选中样式。</li>
-                </ul>
-            </div>
-        </section>
-
         <section class="summary-card">
             <h2>总结</h2>
             <ul>
@@ -168,7 +152,6 @@ function resetDemo() {
 .teach-page {
     margin: 0 auto;
     font-family: 'Inter', 'Segoe UI', 'PingFang SC', 'Hiragino Sans', Arial, sans-serif;
-    max-width: 800px;
 }
 
 .header-row {
@@ -222,7 +205,7 @@ function resetDemo() {
     border-radius: 10px;
     border: 1px solid #e3e8ee;
     padding: 22px 18px 18px 18px;
-    background: #fff;
+    box-sizing: border-box;
     box-shadow: 0 1px 8px #0001;
     display: flex;
     flex-direction: column;
@@ -233,7 +216,7 @@ function resetDemo() {
 .pseudo-card:hover {
     border: 1px solid #1976d2;
     box-shadow: 0 2px 16px #1976d222;
-    background: #fafdff;
+    background: #fafdff50;
 }
 
 .pseudo-card h2 {
@@ -413,7 +396,6 @@ function resetDemo() {
         padding: 12px 4vw 10px 4vw;
     }
 
-    .card,
     .summary-card {
         padding: 12px 4vw;
     }
@@ -425,7 +407,6 @@ function resetDemo() {
     }
 
     .pseudo-card,
-    .card,
     .summary-card {
         padding-left: 2vw;
         padding-right: 2vw;

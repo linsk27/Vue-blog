@@ -36,16 +36,17 @@ const filteredArticles = computed(() => {
 </script>
 <style scoped>
 .essays-list-page {
+    flex: 1;
+    height: 100%;
     max-width: 900px;
-    margin: 48px auto 0 auto;
+    justify-content: center;
     padding: 0 16px 40px 16px;
-    background: #fff;
 }
 
 .essays-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #222;
+    color: #fff;
     margin-bottom: 18px;
     letter-spacing: 0.5px;
     text-align: left;
@@ -61,41 +62,49 @@ const filteredArticles = computed(() => {
     font-size: 1rem;
     border: 1px solid #e3e8ee;
     border-radius: 6px;
-    background: #f8fafc;
-    color: #222;
+    background: #f8fafc20;
+    color: #eeeeee;
     outline: none;
     transition: border 0.18s;
 }
 
+.essay-search::placeholder {
+    color: #b0b0b0;
+}
+
+
 .essay-search:focus {
-    border: 1.5px solid #1976d2;
-    background: #fff;
+    background: #f8fafc60;
 }
 
 .essays-list {
     display: flex;
+    background: #ffffff10;
+    border-radius: 10px;
     flex-direction: column;
     gap: 5px;
 }
 
 .essay-row {
+    border-radius: 10px;
     display: flex;
     align-items: center;
     padding: 0 10px;
-    border-bottom: 1px solid #f0f1f3;
+    border: 3px solid #ffffff30;
     min-height: 48px;
     cursor: pointer;
+    background-color: #ffffff20;
     transition: background 0.15s;
 }
 
 .essay-row:hover {
-    background: #f5f7fa;
+    background: #ffffff80;
 }
 
 .essay-title {
     flex: 0 0 300px;
     font-size: 1rem;
-    color: #1976d2;
+    color: rgb(255, 255, 255);
     font-weight: 500;
     font-family: 'Inter', 'PingFang SC', 'Segoe UI', Arial, sans-serif;
     margin-right: 12px;
@@ -114,7 +123,7 @@ const filteredArticles = computed(() => {
 .essay-tag {
     background: #f3f6fa;
     color: #1976d2;
-    border-radius: 2px;
+    border-radius: 6px;
     padding: 0 6px;
     font-size: 12px;
     font-weight: 400;
@@ -123,7 +132,7 @@ const filteredArticles = computed(() => {
 
 .essay-summary {
     flex: 1 1 auto;
-    color: #666;
+    color: rgb(255, 255, 255);
     font-size: 0.97rem;
     white-space: nowrap;
     overflow: hidden;

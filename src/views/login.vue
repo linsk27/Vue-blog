@@ -34,6 +34,7 @@
             <p class="toggle-mode" @click="toggleMode">
                 {{ isLoginMode ? "没有账号？去注册" : "已有账号？去登录" }}
             </p>
+            <div class="guest" @click="guestLogin">游客登录</div>
         </div>
     </div>
 </template>
@@ -109,6 +110,10 @@ const handleSubmit = async () => {
         message.error('提交表单失败: ' + error)
     }
 };
+const guestLogin = () => {
+    router.push('/')
+    message.success("游客登录成功，欢迎使用！");
+}
 </script>
 
 <style scoped>
@@ -185,5 +190,15 @@ input {
 .toggle-mode:hover {
     color: #42b983;
     text-decoration: underline;
+}
+
+.guest {
+    cursor: pointer;
+    text-align: right;
+}
+
+.guest:hover {
+    color: #0162ea;
+    font-weight: bold;
 }
 </style>

@@ -14,7 +14,7 @@ export const useElMessage = () => {
             ElMessage({
                 message,
                 type: 'success',
-                duration: 1000
+                duration: 600
             })
         },
         warning: (message: string): void => {
