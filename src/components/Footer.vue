@@ -10,11 +10,10 @@
 
             <!-- 文字内容区域 -->
             <div class="footer-text">
-                <p class="copyright">© 2023 Your Company Name. All rights reserved.</p>
+                <p class="copyright">© 2025 Linda's blog. All rights reserved.</p>
                 <div class="links">
-                    <a href="#" class="link-item">Privacy Policy</a>
-                    <a href="#" class="link-item">Terms of Service</a>
-                    <a href="#" class="link-item">Contact Us</a>
+                    <a href="https://lindablog.xyz" class="link-item">lindablog.xyz</a>
+                    <a href="#" class="link-item">contact me 1809578063@qq.com</a>
                 </div>
             </div>
         </div>

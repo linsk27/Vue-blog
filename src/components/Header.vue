@@ -4,7 +4,7 @@
             <!-- 左侧Logo和公司名称 -->
             <div class="brand">
                 <img class="logo" src="@/assets/images/speedHeadLogo.png" alt="Company Logo" />
-                <span class="company-name">Vue Enterprise</span>
+                <span class="company-name">交互式知识库</span>
             </div>
 
             <!-- 主导航菜单 -->
