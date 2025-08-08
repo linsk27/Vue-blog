@@ -17,11 +17,11 @@ html {
 
 /* 适用于 WebKit 浏览器：Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-    width: 8px; /* 滚动条宽度 */
+    width: 5px; /* 滚动条宽度 */
 }
 
 ::-webkit-scrollbar-track {
-    background: translate; /* 滚动条轨道背景 */
+    background: #abb0b2; /* 滚动条轨道背景 */
 }
 
 ::-webkit-scrollbar-thumb {

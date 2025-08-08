@@ -13,6 +13,7 @@ import Footer from '@/components/Footer.vue';
         <div class="container">
             <Header />
             <main>
+                <img src="@/assets/images/backImg.jpg" alt="">
                 <router-view></router-view>
             </main>
             <Footer />
@@ -22,15 +23,25 @@ import Footer from '@/components/Footer.vue';
 
 <style scoped>
 .container {
-    background-image: url('@/assets/images/backImg.jpg');
-    background-size: cover;
+    /* background-image: url('@/assets/images/backImg.jpg'); */
 
+    height: 100vh;
     display: flex;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    min-height: 100vh;
     flex-direction: column;
+
+    img {
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        left: 0;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    /* background-repeat: no-repeat;
+    background-position: center center; */
 }
 
 main {
