@@ -3,7 +3,7 @@
         <div class="auth-card">
             <h2>{{ isLoginMode ? "登录" : "注册" }}</h2>
 
-            <form @submit.prevent="handleSubmit">
+            <form @submit.prevent="handleSubmit" autocomplete="off">
                 <!-- 用户名/用户名 -->
                 <div class="form-group">
                     <label for="username">用户名</label>

@@ -26,9 +26,8 @@
 
 <style scoped>
 .official-footer {
-    /* background-color: #f8f8f8; */
     padding: 1.5rem 0;
-    border-top: 1px solid #e7e7e78b;
+    box-shadow: 0 -2px 12px 10px rgba(0, 0, 0, 0.1);
     font-family: system-ui, -apple-system, sans-serif;
 }
 

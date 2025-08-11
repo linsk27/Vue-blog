@@ -23,8 +23,6 @@ import Footer from '@/components/Footer.vue';
 
 <style scoped>
 .container {
-    /* background-image: url('@/assets/images/backImg.jpg'); */
-
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,9 +37,6 @@ import Footer from '@/components/Footer.vue';
         object-fit: cover;
         z-index: -1;
     }
-
-    /* background-repeat: no-repeat;
-    background-position: center center; */
 }
 
 main {
