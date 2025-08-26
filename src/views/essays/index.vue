@@ -19,7 +19,7 @@ import { articles } from './articles/index'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 function goToArticle(id: string) {
-    router.push(`/essays/${id}`)
+    router.push(`/essays/${encodeURIComponent(id)}`)
 }
 const search = ref('')
 const filteredArticles = computed(() => {
@@ -33,6 +33,18 @@ const filteredArticles = computed(() => {
         )
     })
 })
+
+function maxNodesFromLeaves(leafCount: number) {
+    if (!Number.isInteger(leafCount) || leafCount <= 0) {
+        throw new Error("leafCount must be a positive integer");
+    }
+    // 使用 Number 对 64-bit 安全范围内整数有效；超大可以用 BigInt
+    return 2 * leafCount - 1;
+}
+
+// 测试
+console.log(maxNodesFromLeaves(124)); // 247
+
 </script>
 <style scoped>
 .essays-list-page {

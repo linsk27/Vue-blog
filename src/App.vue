@@ -3,9 +3,11 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import StarBackground from './components/StarBackground.vue';
 </script>
 
 <template>
+    <StarBackground />
     <div v-if="route.path === '/login'">
         <router-view></router-view>
     </div>
