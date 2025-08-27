@@ -11,8 +11,9 @@
 <script lang="ts" setup>
 
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @use "sass:math";
+@use "sass:string";
 
 .animate-box {
     position: absolute;
@@ -31,15 +32,15 @@
         $result: '#{$result},#{math.random(100)}vw #{math.random(100)}vh #fff'
     }
 
-    @return unquote($result);
+    @return string.unquote($result);
 }
 
 // 层级数量
 $n: 5;
 // 移动时间
-$duration: 200s;
+$duration: 300s;
 //数量
-$count: 500;
+$count: 150;
 
 @for $i from 1 through $n {
 
@@ -63,8 +64,8 @@ $count: 500;
         top: 100vh;
     }
 
-    $duration: floor($duration /2);
-    $count: floor($count /2);
+    $duration: math.floor(math.div($duration , 2));
+    $count: math.floor(math.div($count , 2));
 }
 
 ;

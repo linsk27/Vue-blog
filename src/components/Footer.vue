@@ -1,9 +1,13 @@
 <template>
     <footer class="official-footer">
+
         <div class="footer-content">
             <!-- 图片占位区域 -->
             <div class="footer-image-placeholder">
                 <slot name="image">
+                    <IconPicture class="icon-picture" theme="outline" size="22" fill="#fff"
+                        @click="changeBackground()" />
+                    <IconStar class="icon-picture" theme="outline" size="22" fill="#fff" @click="changeStar()" />
                     <!-- 这里可以放置默认图片或留空 -->
                 </slot>
             </div>
@@ -22,6 +26,36 @@
 
 <script setup>
 // 这里可以添加需要的逻辑
+import { ref } from 'vue'
+import { NewPicture as IconPicture, Star as IconStar } from '@icon-park/vue-next'
+import { useImgStore } from '@/store/backgroundImg'
+const imgStore = useImgStore()
+const index = ref(0)
+// 此处后期使用api接口获取数据
+const imgUrlData = ref([
+    "https://s2.loli.net/2025/08/27/XkKHlSEcUIvafWd.jpg",
+    "https://s2.loli.net/2025/08/27/ygncYMIGHK1NAaT.jpg",
+])
+console.log('[ imgStore.url ] >', imgStore.url)
+if (imgStore.url) {
+    index.value = imgUrlData.value.findIndex(item => item === imgStore.url) + 1
+}
+console.log('[ index.value ] >', index.value)
+const changeBackground = () => {
+    console.log('[ index.value ] >', index.value)
+    if (index.value >= imgUrlData.value.length) index.value = 0
+    // 白屏优化
+    const img = new Image()
+    img.src = imgUrlData.value[index.value]
+    img.onload = () => {
+        imgStore.changeUrl(img.src)
+    }
+
+    index.value++
+}
+const changeStar = () => {
+    imgStore.toggleStar()
+}
 </script>
 
 <style scoped>
@@ -45,8 +79,13 @@
     height: 40px;
     /* 可根据需要调整 */
     display: flex;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.icon-picture {
+    cursor: pointer;
 }
 
 .footer-text {
