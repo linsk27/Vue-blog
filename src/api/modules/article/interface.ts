@@ -24,4 +24,5 @@ export interface IArticle {
     updated_at: string
     author_name?: string
     author_avatar?: string
+    is_liked?: boolean
 }

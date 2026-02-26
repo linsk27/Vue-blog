@@ -98,6 +98,8 @@
                     <div class="card-meta">
                         <span class="meta-item">{{ formatDate(article.created_at) }}</span>
                         <span class="meta-item" v-if="article.author_name">· {{ article.author_name }}</span>
+                        <span class="meta-item">· 👁️ {{ article.views }}</span>
+                        <span class="meta-item">· ❤️ {{ article.likes }}</span>
                     </div>
                 </div>
             </div>
@@ -122,6 +124,8 @@
                         <span class="meta-date">
                             <i class="icon-date">📅</i> {{ formatDate(article.created_at) }}
                         </span>
+                        <span class="meta-views">👁️ {{ article.views }}</span>
+                        <span class="meta-likes">❤️ {{ article.likes }}</span>
                         <span class="read-more">阅读全文 →</span>
                     </div>
                 </div>
@@ -219,6 +223,12 @@ const fetchArticles = async () => {
         // 合并文章：本地文章在前
         // @ts-ignore
         articles.value = [...filteredLocal, ...backendArticles]
+
+        // Add default values for new fields if missing
+        articles.value.forEach(a => {
+            a.views = a.views || 0
+            a.likes = a.likes || 0
+        })
 
     } catch (error) {
         console.error('Failed to fetch articles:', error)

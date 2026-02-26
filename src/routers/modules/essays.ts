@@ -20,6 +20,11 @@ const essaysRouters: Array<RouteRecordRaw> = [
         meta: { title: '我的作品' }
     },
     {
+        path: '/essays/my-likes',
+        component: () => import('@/views/essays/MyLikes.vue'),
+        meta: { title: '我的喜欢' }
+    },
+    {
         path: `/essays/:id`,
         component: () => import('@/views/essays/ArticlePage.vue'), // 文章详情
         props: true,

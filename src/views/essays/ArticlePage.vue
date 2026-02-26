@@ -7,8 +7,12 @@
                     <h1 class="article-title">{{ article.title }}</h1>
                     <div class="article-meta">
                         <span class="article-date" v-if="article.created_at">发布于 {{ formatDate(article.created_at)
-                            }}</span>
+                        }}</span>
                         <span class="article-author" v-if="article.author_name"> · 作者: {{ article.author_name }}</span>
+                        <span class="meta-item"> · {{ article.views }} 阅读</span>
+                        <span class="meta-item like-btn" @click="toggleLike" :class="{ 'is-liked': article.is_liked }">
+                            {{ article.is_liked ? '❤️' : '🤍' }} {{ article.likes }} 点赞
+                        </span>
                     </div>
                     <div class="article-tags">
                         <span class="article-tag" v-for="tag in article.tags" :key="tag">{{ tag }}</span>
@@ -84,6 +88,34 @@ const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString()
 }
 
+// 点赞文章
+const toggleLike = async () => {
+    if (!article.value) return
+    try {
+        const res = await articleApi.toggleLike(article.value.id)
+        if (article.value) {
+            article.value.is_liked = res.liked
+            article.value.likes = res.likes
+        }
+    } catch (error) {
+        console.error('点赞失败', error)
+        message.error('操作失败，请先登录')
+    }
+}
+
+// 增加阅读量
+const incrementView = async () => {
+    if (!article.value) return
+    try {
+        await articleApi.incrementView(article.value.id)
+        if (article.value) {
+            article.value.views++
+        }
+    } catch (error) {
+        console.error('增加阅读量失败', error)
+    }
+}
+
 // 提取纯文本内容
 const extractTextContent = (html: string) => {
     const tempDiv = document.createElement('div')
@@ -142,6 +174,13 @@ const generateAiSummary = async () => {
 onMounted(async () => {
     const id = route.params.id as string
     if (id) {
+        // 增加阅读量
+        try {
+            await articleApi.incrementView(id)
+        } catch (e) {
+            console.error('更新阅读量失败', e)
+        }
+
         loading.value = true
 
         // 1. 优先检查是否为本地交互式文章
@@ -176,6 +215,13 @@ onMounted(async () => {
             const res = await articleApi.getDetail(id)
             // @ts-ignore
             article.value = res.data || res
+
+            // 确保 views 是数字
+            if (typeof article.value.views !== 'number') {
+                article.value.views = 0
+            }
+            // 确保 is_liked 是布尔值
+            article.value.is_liked = !!article.value.is_liked
         } catch (error) {
             console.error('Failed to load article:', error)
             message.error('加载文章失败')
@@ -186,91 +232,105 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .article-page {
-    width: 100%;
-    min-height: calc(100vh - 140px);
-    padding: 40px 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 248, 245, 0.85) 100%);
-    box-sizing: border-box;
+    background: #f5f7fa;
+    min-height: 100vh;
+    padding: 2rem 0;
 }
 
 .article-container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .article-header {
-    margin-bottom: 32px;
-    border-bottom: 1.5px solid rgba(255, 127, 80, 0.15);
-    padding-bottom: 18px;
+    margin-bottom: 2rem;
 }
 
 .back-btn {
-    background: #fff5f0;
-    color: #ff7f50;
+    background: none;
     border: none;
-    border-radius: 5px;
-    padding: 6px 18px;
-    font-size: 15px;
-    font-weight: 500;
+    color: #666;
     cursor: pointer;
-    margin-bottom: 18px;
-    transition: background 0.2s, color 0.2s;
-}
+    font-size: 1rem;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s;
 
-.back-btn:hover {
-    background: #ff7f50;
-    color: #fff;
+    &:hover {
+        color: #ff7f50;
+    }
 }
 
 .article-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ff7f50;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0 0 1rem;
+    line-height: 1.3;
 }
 
 .article-meta {
     color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.meta-item {
+    &.like-btn {
+        cursor: pointer;
+        padding: 4px 10px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+        user-select: none;
+
+        &:hover {
+            background: rgba(255, 127, 80, 0.1);
+        }
+
+        &.is-liked {
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+        }
+    }
 }
 
 .article-tags {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 1.5rem;
 }
 
 .article-tag {
-    background: #fff5f0;
+    display: inline-block;
+    background: #fff;
     color: #ff7f50;
-    border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 13px;
-    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 0.8rem;
+    box-shadow: 0 2px 8px rgba(255, 127, 80, 0.1);
 }
 
 .article-summary {
-    color: #444;
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    line-height: 1.7;
-    background-color: #f8f9fa;
-    padding: 12px;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: #555;
+    line-height: 1.6;
     border-left: 4px solid #ff7f50;
+    font-style: italic;
 }
 
 .article-content-card {
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(255, 127, 80, 0.08);
-    border: 1.5px solid rgba(255, 127, 80, 0.1);
-    padding: 30px;
-    min-height: 300px;
-    margin-top: 18px;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
 }
 
 .not-found {

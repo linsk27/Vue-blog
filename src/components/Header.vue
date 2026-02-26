@@ -46,6 +46,10 @@
                                 <span class="item-icon">📚</span>
                                 <span>我的作品</span>
                             </el-dropdown-item>
+                            <el-dropdown-item command="my-likes" class="dropdown-item">
+                                <span class="item-icon">❤️</span>
+                                <span>我的喜欢</span>
+                            </el-dropdown-item>
                             <el-dropdown-item command="settings" class="dropdown-item">
                                 <span class="item-icon">⚙️</span>
                                 <span>账号设置</span>
@@ -99,6 +103,9 @@ const handleCommand = (command: string) => {
             break
         case 'my-works':
             router.push('/essays/my-works')
+            break
+        case 'my-likes':
+            router.push('/essays/my-likes')
             break
         case 'settings':
             router.push('/settings')

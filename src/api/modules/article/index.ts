@@ -1,5 +1,5 @@
 import { IArticleParams, IArticle } from './interface'
-import { ARTICLE_CREATE, ARTICLE_DETAIL, ARTICLE_UPDATE, ARTICLE_LIST, ARTICLE_DELETE } from './url.const'
+import { ARTICLE_CREATE, ARTICLE_DETAIL, ARTICLE_UPDATE, ARTICLE_LIST, ARTICLE_DELETE, ARTICLE_TOGGLE_LIKE, ARTICLE_INCREMENT_VIEW, ARTICLE_MY_LIKES } from './url.const'
 import http from '@/api'
 
 const articleApi = {
@@ -17,6 +17,15 @@ const articleApi = {
     },
     getList: (params?: any) => {
         return http.get<IArticle[]>(ARTICLE_LIST, params)
+    },
+    toggleLike: (id: number | string) => {
+        return http.post<{ liked: boolean; likes: number }>(ARTICLE_TOGGLE_LIKE(id))
+    },
+    incrementView: (id: number | string) => {
+        return http.post(ARTICLE_INCREMENT_VIEW(id))
+    },
+    getMyLikes: () => {
+        return http.get<IArticle[]>(ARTICLE_MY_LIKES)
     }
 }
 
