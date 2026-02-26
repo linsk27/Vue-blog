@@ -15,7 +15,7 @@ class RequestHttp {
     constructor(config: AxiosRequestConfig) {
         this.service = axios.create({
             baseURL,
-            timeout: 10000,
+            timeout: 50000, // 增加超时时间到30秒，以适应AI请求和后端重试机制
             withCredentials: true,
             ...config
         })
@@ -46,17 +46,24 @@ class RequestHttp {
     }
 
     private handleBusinessCode(data: any) {
-        switch (data.status) {
-            case 0:
-                return data.data // 成功
-            case 599:
-            case 401: // 登录失效
-                this.jumpToLogin()
+        // 处理新的返回格式 { status: number, msg: string, data?: any }
+        if (data.status !== undefined) {
+            if (data.status === 0) {
+                return data.data || data // 成功
+            } else {
+                // 业务错误
+                message.error(data.msg || '请求失败')
                 return Promise.reject(data)
-            default: // 业务错误
-                message.error(data.info)
-                return Promise.reject(data)
+            }
         }
+
+        // 处理旧的返回格式 { response: string, success: boolean }
+        if (data.success !== undefined) {
+            return data
+        }
+
+        // 默认返回数据
+        return data
     }
 
     private async handleNetworkError(error: any) {

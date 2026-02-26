@@ -51,6 +51,8 @@ $count: 150;
         border-radius: 50%;
         box-shadow: star($count);
         animation: moveup #{$duration} linear infinite;
+        z-index: -5;
+        pointer-events: none;
     }
 
     .layer#{$i}::after {

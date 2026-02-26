@@ -7,12 +7,12 @@ div,
 ul {
     text-decoration: none;
     margin: 0;
-    user-select: none;
-    list-style-type: none;
+    /* user-select: none;
+    list-style-type: none; */
     /* 禁止文字选中 */
 }
 html {
-    overflow-y: none; /* 始终显示纵向滚动条，即使内容不溢出 */
+    overflow-y: auto; /* 自动显示纵向滚动条，当内容溢出时 */
 }
 
 /* 适用于 WebKit 浏览器：Chrome, Edge, Safari */

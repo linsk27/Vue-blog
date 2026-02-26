@@ -23,11 +23,12 @@ export default defineConfig(({ mode }) => {
             target: 'esnext' // 支持最新ES特性，包括顶级await
         },
         server: {
+            port: 8080, // 指定端口
             proxy: {
-                [baseUrl]: {
-                    target,
+                '/api': {
+                    target: 'http://127.0.0.1:5000',
                     changeOrigin: true,
-                    rewrite: path => path.replace(baseUrl, '')
+                    rewrite: (path) => path
                 }
             }
         }

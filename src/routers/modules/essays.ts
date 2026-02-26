@@ -15,10 +15,26 @@ const essaysRouters: Array<RouteRecordRaw> = [
         meta: { title: '特色笔记' }
     },
     {
+        path: '/essays/my-works',
+        component: () => import('@/views/essays/MyWorks.vue'),
+        meta: { title: '我的作品' }
+    },
+    {
         path: `/essays/:id`,
         component: () => import('@/views/essays/ArticlePage.vue'), // 文章详情
         props: true,
         meta: { title: '文章详情' }
+    },
+    {
+        path: '/essays/write',
+        component: () => import('@/views/essays/WriteArticle.vue'), // 写文章
+        meta: { title: '写文章' }
+    },
+    {
+        path: '/essays/edit/:id',
+        component: () => import('@/views/essays/WriteArticle.vue'), // 编辑文章
+        props: true,
+        meta: { title: '编辑文章' }
     }
 ]
 export default essaysRouters

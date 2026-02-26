@@ -334,7 +334,7 @@ watch(vue3Version, () => {
 }
 
 .reset-btn {
-    background: #1976d2;
+    background: #FF7F50;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -342,14 +342,14 @@ watch(vue3Version, () => {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 2px 8px #1976d211;
+    box-shadow: 0 2px 8px rgba(255, 127, 80, 0.2);
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .reset-btn:hover {
-    background: #1565c0;
+    background: #E67E22;
     color: #fff;
-    box-shadow: 0 4px 16px #1976d222;
+    box-shadow: 0 4px 16px rgba(255, 127, 80, 0.3);
 }
 
 .desc {
@@ -384,20 +384,20 @@ watch(vue3Version, () => {
 }
 
 .compare-card:hover {
-    border: 1px solid #1976d2;
-    background: #fafdff50;
+    border: 1px solid #FF7F50;
+    background: #fff8f5;
 }
 
 .compare-card h2 {
     font-size: 20px;
-    color: #1976d2;
+    color: #FF7F50;
     margin-bottom: 6px;
     letter-spacing: 0.2px;
     font-weight: 600;
 }
 
 .sub-title {
-    color: #1976d2;
+    color: #FF7F50;
     font-size: 14px;
     margin-bottom: 12px;
     font-weight: 500;
@@ -420,7 +420,7 @@ watch(vue3Version, () => {
 }
 
 .btns button {
-    background: #1976d2;
+    background: #FF7F50;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -429,13 +429,13 @@ watch(vue3Version, () => {
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 1px 6px #1976d211;
+    box-shadow: 0 1px 6px rgba(255, 127, 80, 0.2);
     transition: background 0.2s, box-shadow 0.2s;
 }
 
 .btns button:hover {
-    background: #1565c0;
-    box-shadow: 0 2px 12px #1976d222;
+    background: #E67E22;
+    box-shadow: 0 2px 12px rgba(255, 127, 80, 0.3);
 }
 
 .explain {
@@ -460,8 +460,8 @@ watch(vue3Version, () => {
 
 .summary-card {
     border-radius: 10px;
-    border: 1px solid #e3e8ee;
-    background: transparent;
+    border: 1px solid rgba(255, 127, 80, 0.15);
+    background: #fff8f5;
     box-shadow: none;
     padding: 18px 12px;
     margin-bottom: 28px;
@@ -469,7 +469,7 @@ watch(vue3Version, () => {
 }
 
 .summary-card h2 {
-    color: #1976d2;
+    color: #FF7F50;
     font-size: 20px;
     margin-bottom: 10px;
     letter-spacing: 0.2px;
@@ -502,7 +502,7 @@ watch(vue3Version, () => {
 }
 
 .code-title {
-    color: #90caf9;
+    color: #FF7F50;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -526,7 +526,7 @@ watch(vue3Version, () => {
 }
 
 .data-struct-title {
-    color: #1976d2;
+    color: #FF7F50;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 6px;

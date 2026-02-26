@@ -162,7 +162,7 @@ function resetDemo() {
 }
 
 .reset-btn {
-    background: #1976d2;
+    background: #FF7F50;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -170,14 +170,14 @@ function resetDemo() {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 2px 8px #1976d211;
+    box-shadow: 0 2px 8px rgba(255, 127, 80, 0.2);
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .reset-btn:hover {
-    background: #1565c0;
+    background: #E67E22;
     color: #fff;
-    box-shadow: 0 4px 16px #1976d222;
+    box-shadow: 0 4px 16px rgba(255, 127, 80, 0.3);
 }
 
 .reset-btn.small {
@@ -214,14 +214,14 @@ function resetDemo() {
 }
 
 .pseudo-card:hover {
-    border: 1px solid #1976d2;
-    box-shadow: 0 2px 16px #1976d222;
-    background: #fafdff50;
+    border: 1px solid #FF7F50;
+    box-shadow: 0 2px 16px rgba(255, 127, 80, 0.15);
+    background: #fff8f5;
 }
 
 .pseudo-card h2 {
     font-size: 18px;
-    color: #1976d2;
+    color: #FF7F50;
     margin-bottom: 8px;
     font-weight: 600;
 }
@@ -264,9 +264,9 @@ function resetDemo() {
 }
 
 .action-btn {
-    background: #f0f4f8;
-    color: #1976d2;
-    border: 1px solid #e3e8ee;
+    background: #fff5f0;
+    color: #FF7F50;
+    border: 1px solid #FFDAB9;
     border-radius: 5px;
     padding: 6px 12px;
     font-size: 13px;
@@ -276,9 +276,9 @@ function resetDemo() {
 }
 
 .action-btn:hover {
-    background: #e3f2fd;
-    border-color: #1976d2;
-    color: #1565c0;
+    background: #FF7F50;
+    border-color: #FF7F50;
+    color: #fff;
 }
 
 .demo-box {
@@ -301,7 +301,7 @@ function resetDemo() {
 
 .demo-box.before::before {
     content: "★ ";
-    color: #1976d2;
+    color: #FF7F50;
     font-size: 18px;
 }
 
@@ -318,14 +318,14 @@ function resetDemo() {
 }
 
 .demo-box.first-line::first-line {
-    color: #1976d2;
+    color: #FF7F50;
     font-weight: bold;
-    background: #e3e8ee;
+    background: #fff5f0;
 }
 
 .demo-box.selection::selection {
-    background: #90caf9;
-    color: #fff;
+    background: #FFDAB9;
+    color: #d32f2f;
 }
 
 .code-block {
@@ -344,7 +344,7 @@ function resetDemo() {
 }
 
 .code-title {
-    color: #90caf9;
+    color: #FF7F50;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -359,8 +359,8 @@ function resetDemo() {
 
 .summary-card {
     border-radius: 10px;
-    border: 1px solid #e3e8ee;
-    background: transparent;
+    border: 1px solid rgba(255, 127, 80, 0.15);
+    background: #fff8f5;
     box-shadow: none;
     padding: 18px 12px;
     margin-bottom: 28px;
@@ -368,7 +368,7 @@ function resetDemo() {
 }
 
 .summary-card h2 {
-    color: #1976d2;
+    color: #FF7F50;
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 600;

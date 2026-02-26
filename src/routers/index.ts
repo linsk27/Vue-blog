@@ -30,7 +30,7 @@ export const setupRouterGuards = (router: Router) => {
         //     return
         // }
         // ... 你的守卫逻辑 ...
-        if (to.path === '/login' && globalStore.token) {
+        if (to.path === '/login' && globalStore?.token) {
             next({ path: '/' })
             NProgress.done()
             return

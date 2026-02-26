@@ -5,6 +5,7 @@ import piniaPersistConfig from './config/piniaPersist'
 interface GlobalState {
     token: string
     userInfo: IUserInfo | null
+    created_at?: string
     themeConfig: {
         breadcrumb: boolean
         tabs: boolean
