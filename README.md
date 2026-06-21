@@ -2,7 +2,7 @@
 
 Vue 博客前端项目，包含文章入口、AI 中心、数据分析看板、个人中心和性能示例页面。它适合用于学习 Vue 前端应用结构、内容型应用页面组织和 AI center dashboard 的基础实现方式。
 
-- 项目介绍：https://linsk27-github-io.vercel.app/projects/vue-blog/
+- 项目介绍：https://linsk27.github.io/projects/vue-blog/
 - 线上演示：https://vue-blog-smoky.vercel.app/
 - GitHub 仓库：https://github.com/linsk27/Vue-blog
 - 作者主页：https://github.com/linsk27
@@ -40,7 +40,7 @@ npm run dev
 
 ## 项目入口
 
-- 项目介绍：[Vue-blog 项目页](https://linsk27-github-io.vercel.app/projects/vue-blog/)
+- 项目介绍：[Vue-blog 项目页](https://linsk27.github.io/projects/vue-blog/)
 - 线上演示：[vue-blog-smoky.vercel.app](https://vue-blog-smoky.vercel.app/)
 - GitHub 仓库：[linsk27/Vue-blog](https://github.com/linsk27/Vue-blog)
 
